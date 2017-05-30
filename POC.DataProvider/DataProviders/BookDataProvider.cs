@@ -37,20 +37,29 @@ namespace POC.DataProvider.DataProviders
             return _mapper.Map<Book>(await CreateBookMock(id));
         }
 
-        public async Task<Book> Create(Book book)
+        public async Task<Book> CreateAsync(Book book)
         {
             // actually save it
             if (book.Id == Guid.Empty)
                 book.Id = Guid.NewGuid();
             if (book.Author != null && book.Author.Id == Guid.Empty)
                 book.Author.Id = Guid.NewGuid();
+            if (book.Author != null)
+                book.Author.Books.Add(book); // this is for POC purposes
             return await Task.FromResult(book);
         }
 
-        public async Task<Book> Update(Book book)
+        public async Task<Book> UpdateAsync(Book book)
         {
             // actually update it
+            if (book.Author != null)
+                book.Author.Books.Add(book); // this is for POC purposes
             return await Task.FromResult(book);
+        }
+
+        public async Task DeleteAsync(Book book)
+        {
+            await Task.CompletedTask;
         }
 
         // mocking stuff

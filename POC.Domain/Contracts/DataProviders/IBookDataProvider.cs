@@ -10,7 +10,8 @@ namespace POC.Domain.Contracts.DataProviders
         Task<IEnumerable<Book>> GetAllAsync(int page = 1, int pagesize = 10);
         Task<int> CountAllAsync();
         Task<Book> GetByIdAsync(Guid id);
-        Task<Book> Create(Book book);
-        Task<Book> Update(Book book);
+        Task<Book> CreateAsync(Book book);
+        Task<Book> UpdateAsync(Book book);
+        Task DeleteAsync(Book book);
     }
 }

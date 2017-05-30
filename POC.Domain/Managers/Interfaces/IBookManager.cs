@@ -11,5 +11,6 @@ namespace POC.Domain.Managers.Interfaces
         Task<BookDto> GetBookByIdAsync(Guid id);
         Task<BookDto> CreateBookAsync(BookDto book);
         Task<BookDto> UpdateBookAsync(Guid id, BookDto book);
+        Task DeleteBookAsync(Guid id);
     }
 }

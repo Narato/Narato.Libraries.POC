@@ -58,7 +58,7 @@ namespace POC
             //Add this filter globally so every request runs this filter to recored execution time
                 config =>
                 {
-                    config.AddResponseFilters();
+                    config.AddResponseFilters(true);
                 })
                 .AddJsonOptions(x =>
                 {
@@ -99,7 +99,7 @@ namespace POC
             });
 
             services.AddCorrelations();
-            services.AddResponseMiddleware();
+            services.AddResponseMiddleware(true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

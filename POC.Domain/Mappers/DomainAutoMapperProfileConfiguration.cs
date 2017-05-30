@@ -9,11 +9,15 @@ namespace POC.Domain.Mappers
         public DomainAutoMapperProfileConfiguration()
         {
             CreateMap<Book, BookDto>()
+                .PreserveReferences()
+                .ReverseMap()
                 .PreserveReferences();
 
             CreateMap<Author, AuthorDto>()
                 .ForMember(d => d.FullName, opt => opt.MapFrom(src => src.FirstName + " " + src.LastName))
                 .ForMember(d => d.BooksWritten, opt => opt.MapFrom(src => src.Books.Count))
+                .PreserveReferences()
+                .ReverseMap()
                 .PreserveReferences();
         }
     }

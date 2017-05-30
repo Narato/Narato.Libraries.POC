@@ -39,7 +39,7 @@ namespace POC.Domain.Managers
         public async Task<BookDto> CreateBookAsync(BookDto book)
         {
             var mappedBook = _mapper.Map<Book>(book);
-            var createdBook = await _bookDataProvider.Create(mappedBook);
+            var createdBook = await _bookDataProvider.CreateAsync(mappedBook);
             return _mapper.Map<BookDto>(createdBook);
         }
 
@@ -47,7 +47,7 @@ namespace POC.Domain.Managers
         {
             var validationMessages = new ModelValidationDictionary<string>();
             if (id != book.Id)
-                validationMessages.Add("", "Id in book does not the same as the id in url.");
+                validationMessages.Add("", "Id in book is not the same as the id in url.");
 
             // do some other validations
 
@@ -55,8 +55,14 @@ namespace POC.Domain.Managers
                 throw new ValidationException<string>(validationMessages);
 
             var mappedBook = _mapper.Map<Book>(book);
-            var updatedBook = await _bookDataProvider.Update(mappedBook);
+            var updatedBook = await _bookDataProvider.UpdateAsync(mappedBook);
             return _mapper.Map<BookDto>(updatedBook);
+        }
+
+        public async Task DeleteBookAsync(Guid id)
+        {
+            var book = await _bookDataProvider.GetByIdAsync(id);
+            await _bookDataProvider.DeleteAsync(book);
         }
     }
 }
