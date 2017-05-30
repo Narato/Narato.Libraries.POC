@@ -1,0 +1,62 @@
+﻿using POC.Domain.Managers.Interfaces;
+using System.Collections.Generic;
+using Narato.ResponseMiddleware.Models.Models;
+using AutoMapper;
+using System.Threading.Tasks;
+using POC.Domain.Contracts.DataProviders;
+using POC.APIContracts.DTO;
+using System;
+using POC.Domain.Models;
+using Narato.ResponseMiddleware.Models.Exceptions;
+
+namespace POC.Domain.Managers
+{
+    public class BookManager : IBookManager
+    {
+        private readonly IBookDataProvider _bookDataProvider;
+        private readonly IMapper _mapper;
+
+        public BookManager(IBookDataProvider bookDataProvider, IMapper mapper)
+        {
+            _bookDataProvider = bookDataProvider;
+            _mapper = mapper;
+        }
+
+        public async Task<Paged<BookDto>> GetAllBooksAsync(int page = 1, int pagesize = 10)
+        {
+            var count = await _bookDataProvider.CountAllAsync();
+            var books = await _bookDataProvider.GetAllAsync(page, pagesize);
+            var mappedBooks = _mapper.Map<IEnumerable<BookDto>>(books);
+            return new Paged<BookDto>(mappedBooks, page, pagesize, count);
+        }
+
+        public async Task<BookDto> GetBookByIdAsync(Guid id)
+        {
+            var book = await _bookDataProvider.GetByIdAsync(id);
+            return _mapper.Map<BookDto>(book);
+        }
+
+        public async Task<BookDto> CreateBookAsync(BookDto book)
+        {
+            var mappedBook = _mapper.Map<Book>(book);
+            var createdBook = await _bookDataProvider.Create(mappedBook);
+            return _mapper.Map<BookDto>(createdBook);
+        }
+
+        public async Task<BookDto> UpdateBookAsync(Guid id, BookDto book)
+        {
+            var validationMessages = new ModelValidationDictionary<string>();
+            if (id != book.Id)
+                validationMessages.Add("", "Id in book does not the same as the id in url.");
+
+            // do some other validations
+
+            if (validationMessages.Count > 0)
+                throw new ValidationException<string>(validationMessages);
+
+            var mappedBook = _mapper.Map<Book>(book);
+            var updatedBook = await _bookDataProvider.Update(mappedBook);
+            return _mapper.Map<BookDto>(updatedBook);
+        }
+    }
+}

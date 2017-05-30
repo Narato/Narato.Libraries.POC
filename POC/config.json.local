@@ -1,0 +1,5 @@
+﻿{
+  "DatabaseConfiguration": {
+    "ConnectionString": "Server = 192.168.99.100; Port = 5432; Database = NaratoLibrariesPoc; User Id = postgres; Password = narato;"
+  }
+}
