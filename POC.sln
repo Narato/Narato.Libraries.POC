@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "POC", "POC\POC.xproj", "{0FBF59F4-2819-475B-B7D1-6E395C113158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC", "POC\POC.csproj", "{0FBF59F4-2819-475B-B7D1-6E395C113158}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "POC.Domain", "POC.Domain\POC.Domain.xproj", "{C686A415-86CB-4BE6-AE1D-E82A56926F09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.Domain", "POC.Domain\POC.Domain.csproj", "{C686A415-86CB-4BE6-AE1D-E82A56926F09}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "POC.DataProvider", "POC.DataProvider\POC.DataProvider.xproj", "{03B8CFAF-C604-4426-8E28-E8A4E2779845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.DataProvider", "POC.DataProvider\POC.DataProvider.csproj", "{03B8CFAF-C604-4426-8E28-E8A4E2779845}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "POC.APIContracts", "POC.APIContracts\POC.APIContracts.xproj", "{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.APIContracts", "POC.APIContracts\POC.APIContracts.csproj", "{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
