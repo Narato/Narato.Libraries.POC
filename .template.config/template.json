@@ -1,0 +1,24 @@
+﻿{
+  "author": "Narato",
+  "classifications": [ "Narato Libraries", "Configuration", "API" ],
+  "name": "Web API template for using Narato Libraries stack",
+  "tags": {
+    "language": "C#"
+  },
+  "identity": "Narato.Libraries.WebAPI",
+  "shortName": "naratowebapi",
+  "sourceName": "Narato.Libraries.POC",
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "**/*.log",
+        ".template.config/*",
+        ".vs/**/*"
+      ]
+    }
+  ],
+  "preferNameDirectory": true
+  
+}

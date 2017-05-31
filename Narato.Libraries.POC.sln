@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC", "Narato.Libraries.POC\Narato.Libraries.POC.csproj", "{0FBF59F4-2819-475B-B7D1-6E395C113158}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.Domain", "Narato.Libraries.POC.Domain\Narato.Libraries.POC.Domain.csproj", "{C686A415-86CB-4BE6-AE1D-E82A56926F09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.DataProvider", "Narato.Libraries.POC.DataProvider\Narato.Libraries.POC.DataProvider.csproj", "{03B8CFAF-C604-4426-8E28-E8A4E2779845}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.APIContracts", "Narato.Libraries.POC.APIContracts\Narato.Libraries.POC.APIContracts.csproj", "{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
