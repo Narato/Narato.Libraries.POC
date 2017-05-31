@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC", "Narato.Libraries.POC\Narato.Libraries.POC.csproj", "{0FBF59F4-2819-475B-B7D1-6E395C113158}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B02BC004-246D-4BCF-AF17-7633D4051A97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.Domain", "Narato.Libraries.POC.Domain\Narato.Libraries.POC.Domain.csproj", "{C686A415-86CB-4BE6-AE1D-E82A56926F09}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0EFC8F74-BD6C-4F33-A367-26A8626B75D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.DataProvider", "Narato.Libraries.POC.DataProvider\Narato.Libraries.POC.DataProvider.csproj", "{03B8CFAF-C604-4426-8E28-E8A4E2779845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.APIContracts", "src\Narato.Libraries.POC.APIContracts\Narato.Libraries.POC.APIContracts.csproj", "{DF0892BE-32C6-475E-86FF-DE882B8DC953}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.APIContracts", "Narato.Libraries.POC.APIContracts\Narato.Libraries.POC.APIContracts.csproj", "{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.Domain", "src\Narato.Libraries.POC.Domain\Narato.Libraries.POC.Domain.csproj", "{BD32C0D5-2C2A-47F6-BA62-8A6F0FC3A593}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.DataProvider", "src\Narato.Libraries.POC.DataProvider\Narato.Libraries.POC.DataProvider.csproj", "{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC", "src\Narato.Libraries.POC\Narato.Libraries.POC.csproj", "{D56641E2-7DEB-41FA-B414-43DB847CF702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narato.Libraries.POC.Test", "test\Narato.Libraries.POC.Test\Narato.Libraries.POC.Test.csproj", "{B4862E73-C77C-4AF6-8B93-43B6F45F102F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,24 +23,35 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FBF59F4-2819-475B-B7D1-6E395C113158}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C686A415-86CB-4BE6-AE1D-E82A56926F09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03B8CFAF-C604-4426-8E28-E8A4E2779845}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FC7F251-D587-4AE9-9E9F-DD0A3929A656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0892BE-32C6-475E-86FF-DE882B8DC953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0892BE-32C6-475E-86FF-DE882B8DC953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0892BE-32C6-475E-86FF-DE882B8DC953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0892BE-32C6-475E-86FF-DE882B8DC953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD32C0D5-2C2A-47F6-BA62-8A6F0FC3A593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD32C0D5-2C2A-47F6-BA62-8A6F0FC3A593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD32C0D5-2C2A-47F6-BA62-8A6F0FC3A593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD32C0D5-2C2A-47F6-BA62-8A6F0FC3A593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56641E2-7DEB-41FA-B414-43DB847CF702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56641E2-7DEB-41FA-B414-43DB847CF702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56641E2-7DEB-41FA-B414-43DB847CF702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56641E2-7DEB-41FA-B414-43DB847CF702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4862E73-C77C-4AF6-8B93-43B6F45F102F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4862E73-C77C-4AF6-8B93-43B6F45F102F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4862E73-C77C-4AF6-8B93-43B6F45F102F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4862E73-C77C-4AF6-8B93-43B6F45F102F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF0892BE-32C6-475E-86FF-DE882B8DC953} = {B02BC004-246D-4BCF-AF17-7633D4051A97}
+		{BD32C0D5-2C2A-47F6-BA62-8A6F0FC3A593} = {B02BC004-246D-4BCF-AF17-7633D4051A97}
+		{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941} = {B02BC004-246D-4BCF-AF17-7633D4051A97}
+		{D56641E2-7DEB-41FA-B414-43DB847CF702} = {B02BC004-246D-4BCF-AF17-7633D4051A97}
+		{B4862E73-C77C-4AF6-8B93-43B6F45F102F} = {0EFC8F74-BD6C-4F33-A367-26A8626B75D0}
 	EndGlobalSection
 EndGlobal
