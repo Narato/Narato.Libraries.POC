@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 
-namespace Narato.Libraries.POC
+namespace Narato.Libraries.POC.API
 {
     public class Program
     {

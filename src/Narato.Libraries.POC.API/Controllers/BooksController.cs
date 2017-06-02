@@ -5,7 +5,7 @@ using Narato.Libraries.POC.Domain.Managers.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace Narato.Libraries.POC.Controllers
+namespace Narato.Libraries.POC.API.Controllers
 {
     [Route("api/[controller]")]
     public class BooksController : Controller

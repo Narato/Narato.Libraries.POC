@@ -22,7 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Narato.Libraries.POC
+namespace Narato.Libraries.POC.API
 {
     public class Startup
     {
@@ -79,9 +79,9 @@ namespace Narato.Libraries.POC
                 options.SingleApiVersion(new Info
                 {
                     Contact = new Contact { Name = "Narato NV" },
-                    Description = "Narato Libraries Narato.Libraries.POC API",
+                    Description = "Narato Libraries Narato.Libraries.POC.API API",
                     Version = "v1",
-                    Title = "Narato.Libraries.POC"
+                    Title = "Narato.Libraries.POC.API"
                 });
                 //options.OperationFilter<ProducesConsumesFilter>();
 
@@ -128,7 +128,7 @@ namespace Narato.Libraries.POC
             var app = PlatformServices.Default.Application;
             var files = new List<string>()
                         {
-                            "Narato.Libraries.POC.xml"
+                            "Narato.Libraries.POC.API.xml"
                         };
 
             List<string> paths = new List<string>();

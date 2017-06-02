@@ -5,9 +5,9 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>Narato.Libraries.POC</AssemblyName>
+    <AssemblyName>Narato.Libraries.POC.API</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Narato.Libraries.POC</PackageId>
+    <PackageId>Narato.Libraries.POC.API</PackageId>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
   </PropertyGroup>
 

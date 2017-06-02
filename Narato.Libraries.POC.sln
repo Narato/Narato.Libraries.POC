@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.DataProvider", "src\Narato.Libraries.POC.DataProvider\Narato.Libraries.POC.DataProvider.csproj", "{8D3C5D25-4DC0-4A2E-85D5-EFADEAFF5941}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC", "src\Narato.Libraries.POC\Narato.Libraries.POC.csproj", "{D56641E2-7DEB-41FA-B414-43DB847CF702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Libraries.POC.API", "src\Narato.Libraries.POC.API\Narato.Libraries.POC.API.csproj", "{D56641E2-7DEB-41FA-B414-43DB847CF702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Narato.Libraries.POC.Test", "test\Narato.Libraries.POC.Test\Narato.Libraries.POC.Test.csproj", "{B4862E73-C77C-4AF6-8B93-43B6F45F102F}"
 EndProject
