@@ -58,7 +58,7 @@ namespace Narato.Libraries.POC.API
             //Add this filter globally so every request runs this filter to recored execution time
                 config =>
                 {
-                    config.AddResponseFilters(true);
+                    config.AddResponseFilters();
                 })
                 .AddJsonOptions(x =>
                 {
@@ -99,7 +99,7 @@ namespace Narato.Libraries.POC.API
             });
 
             services.AddCorrelations();
-            services.AddResponseMiddleware(true);
+            services.AddResponseMiddleware();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
