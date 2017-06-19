@@ -12,12 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Narato.Libraries.POC.APIContracts\Narato.Libraries.POC.APIContracts.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Narato.ResponseMiddleware.Models" Version="1.0.0" />
-    <PackageReference Include="AutoMapper" Version="6.0.2" />
   </ItemGroup>
 
 </Project>

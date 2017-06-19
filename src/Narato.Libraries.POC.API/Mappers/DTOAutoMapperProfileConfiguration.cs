@@ -2,11 +2,11 @@
 using Narato.Libraries.POC.APIContracts.DTO;
 using Narato.Libraries.POC.Domain.Models;
 
-namespace Narato.Libraries.POC.Domain.Mappers
+namespace Narato.Libraries.POC.API.Mappers
 {
-    public class DomainAutoMapperProfileConfiguration : Profile
+    public class DTOAutoMapperProfileConfiguration : Profile
     {
-        public DomainAutoMapperProfileConfiguration()
+        public DTOAutoMapperProfileConfiguration()
         {
             CreateMap<Book, BookDto>()
                 .PreserveReferences()

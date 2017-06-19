@@ -16,11 +16,12 @@ using Narato.Libraries.POC.DataProvider.Mappers;
 using Narato.Libraries.POC.Domain.Contracts.DataProviders;
 using Narato.Libraries.POC.Domain.Managers;
 using Narato.Libraries.POC.Domain.Managers.Interfaces;
-using Narato.Libraries.POC.Domain.Mappers;
 using Swashbuckle.Swagger.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
+using Narato.Libraries.POC.API.Mappers;
 
 namespace Narato.Libraries.POC.API
 {
@@ -45,7 +46,7 @@ namespace Narato.Libraries.POC.API
             _mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DataProviderAutoMapperProfileConfiguration());
-                cfg.AddProfile(new DomainAutoMapperProfileConfiguration());
+                cfg.AddProfile(new DTOAutoMapperProfileConfiguration());
             });
             _mapperConfiguration.AssertConfigurationIsValid();
         }
@@ -64,7 +65,8 @@ namespace Narato.Libraries.POC.API
                 {
                     x.SerializerSettings.ContractResolver =
                      new CamelCasePropertyNamesContractResolver();
-                    x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    x.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 }
             );
 

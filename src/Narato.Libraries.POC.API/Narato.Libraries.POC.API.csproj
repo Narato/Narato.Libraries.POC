@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Narato.Libraries.POC.APIContracts\Narato.Libraries.POC.APIContracts.csproj" />
     <ProjectReference Include="..\Narato.Libraries.POC.Domain\Narato.Libraries.POC.Domain.csproj" />
     <ProjectReference Include="..\Narato.Libraries.POC.DataProvider\Narato.Libraries.POC.DataProvider.csproj" />
   </ItemGroup>

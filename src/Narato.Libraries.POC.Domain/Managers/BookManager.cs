@@ -1,10 +1,8 @@
 ﻿using Narato.Libraries.POC.Domain.Managers.Interfaces;
 using System.Collections.Generic;
 using Narato.ResponseMiddleware.Models.Models;
-using AutoMapper;
 using System.Threading.Tasks;
 using Narato.Libraries.POC.Domain.Contracts.DataProviders;
-using Narato.Libraries.POC.APIContracts.DTO;
 using System;
 using Narato.Libraries.POC.Domain.Models;
 using Narato.ResponseMiddleware.Models.Exceptions;
@@ -14,36 +12,30 @@ namespace Narato.Libraries.POC.Domain.Managers
     public class BookManager : IBookManager
     {
         private readonly IBookDataProvider _bookDataProvider;
-        private readonly IMapper _mapper;
 
-        public BookManager(IBookDataProvider bookDataProvider, IMapper mapper)
+        public BookManager(IBookDataProvider bookDataProvider)
         {
             _bookDataProvider = bookDataProvider;
-            _mapper = mapper;
         }
 
-        public async Task<Paged<BookDto>> GetAllBooksAsync(int page = 1, int pagesize = 10)
+        public async Task<Paged<Book>> GetAllBooksAsync(int page = 1, int pagesize = 10)
         {
             var count = await _bookDataProvider.CountAllAsync();
             var books = await _bookDataProvider.GetAllAsync(page, pagesize);
-            var mappedBooks = _mapper.Map<IEnumerable<BookDto>>(books);
-            return new Paged<BookDto>(mappedBooks, page, pagesize, count);
+            return new Paged<Book>(books, page, pagesize, count);
         }
 
-        public async Task<BookDto> GetBookByIdAsync(Guid id)
+        public async Task<Book> GetBookByIdAsync(Guid id)
         {
-            var book = await _bookDataProvider.GetByIdAsync(id);
-            return _mapper.Map<BookDto>(book);
+            return await _bookDataProvider.GetByIdAsync(id);
         }
 
-        public async Task<BookDto> CreateBookAsync(BookDto book)
+        public async Task<Book> CreateBookAsync(Book book)
         {
-            var mappedBook = _mapper.Map<Book>(book);
-            var createdBook = await _bookDataProvider.CreateAsync(mappedBook);
-            return _mapper.Map<BookDto>(createdBook);
+            return await _bookDataProvider.CreateAsync(book);
         }
 
-        public async Task<BookDto> UpdateBookAsync(Guid id, BookDto book)
+        public async Task<Book> UpdateBookAsync(Guid id, Book book)
         {
             var validationMessages = new ModelValidationDictionary<string>();
             if (id != book.Id)
@@ -54,9 +46,7 @@ namespace Narato.Libraries.POC.Domain.Managers
             if (validationMessages.Count > 0)
                 throw new ValidationException<string>(validationMessages);
 
-            var mappedBook = _mapper.Map<Book>(book);
-            var updatedBook = await _bookDataProvider.UpdateAsync(mappedBook);
-            return _mapper.Map<BookDto>(updatedBook);
+            return await _bookDataProvider.UpdateAsync(book);
         }
 
         public async Task DeleteBookAsync(Guid id)

@@ -1,5 +1,5 @@
-﻿using Narato.ResponseMiddleware.Models.Models;
-using Narato.Libraries.POC.APIContracts.DTO;
+﻿using Narato.Libraries.POC.Domain.Models;
+using Narato.ResponseMiddleware.Models.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -7,10 +7,10 @@ namespace Narato.Libraries.POC.Domain.Managers.Interfaces
 {
     public interface IBookManager
     {
-        Task<Paged<BookDto>> GetAllBooksAsync(int page = 1, int pagesize = 10);
-        Task<BookDto> GetBookByIdAsync(Guid id);
-        Task<BookDto> CreateBookAsync(BookDto book);
-        Task<BookDto> UpdateBookAsync(Guid id, BookDto book);
+        Task<Paged<Book>> GetAllBooksAsync(int page = 1, int pagesize = 10);
+        Task<Book> GetBookByIdAsync(Guid id);
+        Task<Book> CreateBookAsync(Book book);
+        Task<Book> UpdateBookAsync(Guid id, Book book);
         Task DeleteBookAsync(Guid id);
     }
 }

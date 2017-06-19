@@ -1,12 +1,11 @@
 ﻿using Moq;
 using Narato.Libraries.POC.Domain.Contracts.DataProviders;
-using AutoMapper;
 using Xunit;
 using Narato.Libraries.POC.Domain.Managers;
-using Narato.Libraries.POC.APIContracts.DTO;
 using System;
 using Narato.ResponseMiddleware.Models.Exceptions;
 using System.Linq;
+using Narato.Libraries.POC.Domain.Models;
 
 namespace Narato.Libraries.POC.Test.Managers
 {
@@ -16,11 +15,10 @@ namespace Narato.Libraries.POC.Test.Managers
         public async void TestUpdateBook()
         {
             var bookDataProviderMock = new Mock<IBookDataProvider>();
-            var mapperMock = new Mock<IMapper>();
 
-            var manager = new BookManager(bookDataProviderMock.Object, mapperMock.Object);
+            var manager = new BookManager(bookDataProviderMock.Object);
 
-            var book = new BookDto()
+            var book = new Book()
             {
                 Id = Guid.NewGuid()
             };

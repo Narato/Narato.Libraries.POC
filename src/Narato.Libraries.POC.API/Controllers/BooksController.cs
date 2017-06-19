@@ -4,6 +4,9 @@ using Narato.Libraries.POC.APIContracts.DTO;
 using Narato.Libraries.POC.Domain.Managers.Interfaces;
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
+using System.Collections.Generic;
+using Narato.Libraries.POC.Domain.Models;
 
 namespace Narato.Libraries.POC.API.Controllers
 {
@@ -11,10 +14,12 @@ namespace Narato.Libraries.POC.API.Controllers
     public class BooksController : Controller
     {
         private readonly IBookManager _bookManager;
+        private readonly IMapper _mapper;
 
-        public BooksController(IBookManager bookManager)
+        public BooksController(IBookManager bookManager, IMapper mapper)
         {
             _bookManager = bookManager;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -29,7 +34,9 @@ namespace Narato.Libraries.POC.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pagesize = 10)
         {
-            return Ok(await _bookManager.GetAllBooksAsync(page, pagesize));
+            var pagedBooks = await _bookManager.GetAllBooksAsync(page, pagesize);
+            var mappedPagedBooks = _mapper.Map<IEnumerable<BookDto>>(pagedBooks.Items);
+            return Ok(new Paged<BookDto>(mappedPagedBooks, page, pagesize, pagedBooks.Total));
         }
 
         /// <summary>
@@ -43,7 +50,8 @@ namespace Narato.Libraries.POC.API.Controllers
         [HttpGet("{id}", Name = "GetBookById")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            return Ok(await _bookManager.GetBookByIdAsync(id));
+            var book = await _bookManager.GetBookByIdAsync(id);
+            return Ok(_mapper.Map<BookDto>(book));
         }
 
         /// <summary>
@@ -57,8 +65,9 @@ namespace Narato.Libraries.POC.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] BookDto book)
         {
-            var createdBook = await _bookManager.CreateBookAsync(book);
-            return CreatedAtRoute("GetBookById", new { Id = createdBook.Id }, createdBook);
+            var businessBook = _mapper.Map<Book>(book);
+            var createdBook = await _bookManager.CreateBookAsync(businessBook);
+            return CreatedAtRoute("GetBookById", new { Id = createdBook.Id }, _mapper.Map<BookDto>(createdBook));
         }
 
         /// <summary>
@@ -74,7 +83,9 @@ namespace Narato.Libraries.POC.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] BookDto book)
         {
-            return Ok(await _bookManager.UpdateBookAsync(id, book));
+            var businessBook = _mapper.Map<Book>(book);
+            var updatedBook = await _bookManager.UpdateBookAsync(id, businessBook);
+            return Ok(_mapper.Map<BookDto>(updatedBook));
         }
 
         /// <summary>
