@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Narato.ResponseMiddleware.Models" Version="1.0.0" />
+    <PackageReference Include="Narato.ResponseMiddleware.Models" Version="1.0.2" />
   </ItemGroup>
 
 </Project>
