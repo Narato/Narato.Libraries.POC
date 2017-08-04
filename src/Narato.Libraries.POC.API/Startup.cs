@@ -11,11 +11,13 @@ using Narato.ResponseMiddleware;
 using Newtonsoft.Json.Serialization;
 using NLog.Extensions.Logging;
 using NLog.Web;
-using Narato.Libraries.POC.DataProvider.DataProviders;
 using Narato.Libraries.POC.DataProvider.Mappers;
+#if (EnableExample)
+using Narato.Libraries.POC.DataProvider.DataProviders;
 using Narato.Libraries.POC.Domain.Contracts.DataProviders;
 using Narato.Libraries.POC.Domain.Managers;
 using Narato.Libraries.POC.Domain.Managers.Interfaces;
+#endif
 using Swashbuckle.Swagger.Model;
 using System;
 using System.Collections.Generic;
@@ -70,8 +72,10 @@ namespace Narato.Libraries.POC.API
                 }
             );
 
+#if (EnableExample)
             services.AddTransient<IBookDataProvider, BookDataProvider>();
             services.AddTransient<IBookManager, BookManager>();
+#endif
 
             services.AddSingleton(sp => _mapperConfiguration.CreateMapper());
 

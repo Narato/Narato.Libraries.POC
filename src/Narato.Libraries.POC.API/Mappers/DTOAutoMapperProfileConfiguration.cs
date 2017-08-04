@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+#if (EnableExample)
 using Narato.Libraries.POC.APIContracts.DTO;
 using Narato.Libraries.POC.Domain.Models;
+#endif
 
 namespace Narato.Libraries.POC.API.Mappers
 {
@@ -8,6 +10,7 @@ namespace Narato.Libraries.POC.API.Mappers
     {
         public DTOAutoMapperProfileConfiguration()
         {
+#if (EnableExample)
             CreateMap<Book, BookDto>()
                 .PreserveReferences()
                 .ReverseMap()
@@ -19,6 +22,7 @@ namespace Narato.Libraries.POC.API.Mappers
                 .PreserveReferences()
                 .ReverseMap()
                 .PreserveReferences();
+#endif
         }
     }
 }

@@ -1,6 +1,10 @@
 ﻿{
   "author": "Narato",
-  "classifications": [ "Narato Libraries", "Configuration", "API" ],
+  "classifications": [
+    "Narato Libraries",
+    "Configuration",
+    "API"
+  ],
   "name": "Web API template for using Narato Libraries stack",
   "tags": {
     "language": "C#"
@@ -17,9 +21,30 @@
         ".template.config/*",
         ".vs/**/*",
         ".git/**/*"
+      ],
+      "modifiers": [
+        {
+          "condition": "(!EnableExample)",
+          "exclude": [
+            "**/*Book*.cs",
+            "**/*Author*.cs"
+          ]
+        },
+        {
+          "condition": "(EnableExample)",
+          "exclude": [
+            "**/.notempty"
+          ]
+        }
       ]
     }
   ],
-  "preferNameDirectory": true
-  
+  "preferNameDirectory": true,
+  "symbols": {
+    "EnableExample": {
+      "type": "parameter",
+      "dataType": "bool",
+      "defaultValue": "false"
+    }
+  }
 }
