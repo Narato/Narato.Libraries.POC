@@ -7,3 +7,7 @@ UnitTestCoverage_Report/
 bin/
 obj/
 */launchSettings.json
+*.local
+.vscode
+*~
+*.log
