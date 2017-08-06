@@ -24,6 +24,10 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Narato.Libraries.POC.API.Mappers;
+#if (EnableEntityFramework)
+using Narato.Libraries.POC.DataProvider.Contexts;
+using Microsoft.EntityFrameworkCore;
+#endif
 
 namespace Narato.Libraries.POC.API
 {
@@ -75,6 +79,17 @@ namespace Narato.Libraries.POC.API
 #if (EnableExample)
             services.AddTransient<IBookDataProvider, BookDataProvider>();
             services.AddTransient<IBookManager, BookManager>();
+#endif
+
+#if (EnableEntityFrameworkPostgres)
+            services.AddEntityFrameworkNpgsql();
+#endif
+#if (EnableEntityFramework)
+            services.AddDbContext<DataContext>(options => {
+    #if (EnableEntityFrameworkPostgres)
+                options.UseNpgsql(Configuration["DatabaseConfiguration:ConnectionString"]);
+    #endif
+            });
 #endif
 
             services.AddSingleton(sp => _mapperConfiguration.CreateMapper());

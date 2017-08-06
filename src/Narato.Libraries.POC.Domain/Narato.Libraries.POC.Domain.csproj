@@ -15,4 +15,10 @@
     <PackageReference Include="Narato.ResponseMiddleware.Models" Version="1.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\DataProviders\" />
+    <Folder Include="Managers\Interfaces\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

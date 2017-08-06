@@ -31,9 +31,9 @@
           ]
         },
         {
-          "condition": "(EnableExample)",
+          "condition": "(UseEntityFramework == \"none\")",
           "exclude": [
-            "**/.notempty"
+            "**/Contexts/*"
           ]
         }
       ]
@@ -45,6 +45,29 @@
       "type": "parameter",
       "dataType": "bool",
       "defaultValue": "false"
+    },
+    "UseEntityFramework": {
+      "type": "parameter",
+      "dataType": "choice",
+      "defaultValue": "none",
+      "choices": [
+        {
+          "choice": "none",
+          "description": "don't use entity framework"
+        },
+        {
+          "choice": "postgres",
+          "description": "postgres"
+        }
+      ]
+    },
+    "EnableEntityFramework": {
+      "type": "computed",
+      "value": "(UseEntityFramework != \"none\")"
+    },
+    "EnableEntityFrameworkPostgres": {
+      "type": "computed",
+      "value": "(UseEntityFramework == \"postgres\")"
     }
   }
 }
