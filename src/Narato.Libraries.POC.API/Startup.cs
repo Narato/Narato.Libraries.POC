@@ -9,8 +9,6 @@ using Narato.Correlations;
 using Narato.ExecutionTimingMiddleware;
 using Narato.ResponseMiddleware;
 using Newtonsoft.Json.Serialization;
-using NLog.Extensions.Logging;
-using NLog.Web;
 using Narato.Libraries.POC.DataProvider.Mappers;
 #if (EnableExample)
 using Narato.Libraries.POC.DataProvider.DataProviders;
@@ -34,21 +32,11 @@ namespace Narato.Libraries.POC.API
     public class Startup
     {
         private MapperConfiguration _mapperConfiguration { get; set; }
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddJsonFile("config.json")
-                .AddJsonFile("config.json.local", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
-
-            env.ConfigureNLog("nlog.config");
-
+            Configuration = configuration;
             _mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DataProviderAutoMapperProfileConfiguration());
@@ -113,7 +101,7 @@ namespace Narato.Libraries.POC.API
                     {
                         options.IncludeXmlComments(entry);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                     }
                 }
@@ -126,11 +114,6 @@ namespace Narato.Libraries.POC.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-            loggerFactory.AddNLog();
-            app.AddNLogWeb();
-
             app.UseExceptionHandler();
             app.UseCorrelations();
             app.UseExecutionTiming();

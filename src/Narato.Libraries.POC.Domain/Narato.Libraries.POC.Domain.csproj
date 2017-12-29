@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Narato.Libraries.POC.Domain</AssemblyName>
     <PackageId>Narato.Libraries.POC.Domain</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
+    <AssetTargetFallback>$(AssetTargetFallback);dotnet5.6;portable-net45+win8</AssetTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Narato.ResponseMiddleware.Models" Version="1.0.2" />
+    <PackageReference Include="Narato.ResponseMiddleware.Models" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

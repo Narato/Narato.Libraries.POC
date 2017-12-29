@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Narato.Libraries.POC.DataProvider</AssemblyName>
     <PackageId>Narato.Libraries.POC.DataProvider</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
+    <AssetTargetFallback>$(AssetTargetFallback);dotnet5.6;portable-net45+win8</AssetTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -14,17 +14,17 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />
 <!--#if (UseEntityFramework != "none")-->
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" />
 <!--#endif-->
 <!--#if (UseEntityFramework == "postgres")-->
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="1.1.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="2.0.0-preview1" />
 <!--#endif-->    
 <!--#if (UseEntityFramework != "none")-->
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet">
-      <Version>1.0.1</Version>
+      <Version>2.0.0</Version>
     </DotNetCliToolReference>
 <!--#endif-->
   </ItemGroup>
