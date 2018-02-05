@@ -88,7 +88,7 @@ namespace Narato.Libraries.POC.API
                 options.SingleApiVersion(new Info
                 {
                     Contact = new Contact { Name = "Narato NV" },
-                    Description = "Narato Libraries Narato.Libraries.POC.API API",
+                    Description = "Narato.Libraries.POC.API API",
                     Version = "v1",
                     Title = "Narato.Libraries.POC.API"
                 });

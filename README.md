@@ -1,4 +1,4 @@
-# Narato.Libraries.Narato.Libraries.POC
+# Narato.Libraries.POC
 
 # Helping out
 
